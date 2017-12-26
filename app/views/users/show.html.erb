@@ -4,9 +4,22 @@
 
 <h1><%= @user.name %>'s Profile</h1>
 
-<p><strong><%= @user.name %>'s favorite</strong></p>
-<p>...grog is a <%= @user.profile.beer.name %></p>
-<p>...name for a cat is <%= @user.profile.cat.name %></p>
-<p>...color for a sword is <%= @user.profile.color.name %></p>
-<p>...breakfast food is <%= @user.profile.food.name %></p>
+<div class="row">
+  <div class="col-sm-6">
+    <p><strong><%= @user.name %>'s favorite...</strong></p>
+    <p>...grog is a <%= @user.profile.beer.name %></p>
+    <p>...name for a cat is <%= @user.profile.cat.name %></p>
+    <p>...color for a sword is <%= @user.profile.color.name %></p>
+    <p>...breakfast food is <%= @user.profile.food.name %></p>
+  </div> <!-- col-sm-6 -->
+
+  <div class="col-sm-6">
+    <p><strong><%= @user.name %>'s best matches are:</strong></p>
+    <ul>
+      <li>TBD</li>
+    </ul>
+  </div> <!-- col-sm-6 -->
+</div> <!-- row -->
+
+
 
