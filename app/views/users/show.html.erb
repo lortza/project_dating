@@ -60,7 +60,9 @@
   <div class="col-sm-4">
     <h4>Matches based on Mutual Interest:</h4>
     <ul>
-      <li>TBD</li>
+      <% @mutual_matches.each do |user| %>
+      <li><%= link_to user.name, user_path(user) %></li>
+      <% end %>
     </ul>
   </div> <!-- col-sm-4 -->
 </div> <!-- row -->

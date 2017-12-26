@@ -18,4 +18,11 @@ class User < ApplicationRecord
 
   validates :name, presence: true
 
+  def mutual_interests
+    pool = self.interestees
+    mutuals = Interested.where('interester_id IN (?) AND interestee_id = ?', pool.pluck(:id), self.id)
+    User.where('id IN (?)', mutuals.pluck(:interester_id))
+    # pool.joins('JOIN interesteds ON users.id = interesteds.interester_id')
+  end
+
 end

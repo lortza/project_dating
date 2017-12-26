@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     @cat_matches = user_profile.cat
     @color_matches = user_profile.color
     @food_matches = user_profile.food
+    @mutual_matches = @user.mutual_interests
   end
 
   def new
