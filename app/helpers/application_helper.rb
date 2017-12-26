@@ -10,4 +10,8 @@ module ApplicationHelper
     end
   end
 
+  def button_classes(style = 'primary')
+    "btn btn-xs btn-#{style}"
+  end
+
 end

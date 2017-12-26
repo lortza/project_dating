@@ -20,7 +20,7 @@ Build a dating application which matches users based on their responses to a ser
 ## Requirements
 Upon implementation, ensure that you have included at least one instance of each of the following new concepts:
 
-- Collection forms
-- Nested forms
-- Polymorphic relationships
-- Self-referencing associations
+- Collection forms: dropdowns
+- Nested forms: user & profile at once
+- Self-referencing associations: interested
+- Polymorphic relationships: taggable

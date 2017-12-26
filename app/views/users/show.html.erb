@@ -1,4 +1,10 @@
-<p><%= @user.name %></p>
+<h1><%= @user.name %>'s Profile</h1>
+
+<p><strong><%= @user.name %>'s favorite...</strong></p>
+<p>beer is a <%= @user.profile.beer.name %></p>
+<p>cat name is <%= @user.profile.cat.name %></p>
+<p>color is <%= @user.profile.color.name %></p>
+<p>food is <%= @user.profile.food.name %></p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
