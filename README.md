@@ -25,4 +25,4 @@ Upon implementation, ensure that you have included at least one instance of each
 | Collection forms | dropdowns | complete |
 | Nested forms | user & profile at once | complete |
 | Self-referencing associations | "interested" in a user | complete |
-| Polymorphic relationships | taggable |  |
+| Polymorphic relationships | commentable | complete |

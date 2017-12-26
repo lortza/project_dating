@@ -11,6 +11,7 @@
       <th>Is interested in</th>
       <th>Is interesting to</th>
       <th>Mutual interests</th>
+      <th>Comments</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,6 +23,7 @@
         <td><%= user.interestees.count %></td>
         <td><%= user.suitors.count %></td>
         <td><%= user.mutual_interests.count %></td>
+        <td><%= user.comments.count %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

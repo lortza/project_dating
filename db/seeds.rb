@@ -4,6 +4,7 @@ Cat.destroy_all
 Color.destroy_all
 Food.destroy_all
 User.destroy_all
+Comment.destroy_all
 
 
 MULTIPLIER = 10
@@ -40,4 +41,26 @@ users.each do |user|
   end
 
 end
+
+puts "Creating comments for users"
+(MULTIPLIER).times do
+  klass = klasses.sample.constantize
+  Comment.create!({
+    body: Faker::Hipster.paragraph,
+    commentable_type: 'User',
+    commentable_id: User.all.sample.id
+  })
+end
+
+puts "Creating comments for profile models"
+klasses = ['Beer', 'Cat', 'Color', 'Food']
+(MULTIPLIER).times do
+  klass = klasses.sample.constantize
+  Comment.create!({
+    body: Faker::Hipster.paragraph,
+    commentable_type: klass,
+    commentable_id: klass.all.sample.id
+  })
+end
+
 

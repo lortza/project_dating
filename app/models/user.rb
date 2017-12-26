@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  has_many :comments, as: :commentable
+
   has_one :profile, dependent: :destroy, inverse_of: :user
   accepts_nested_attributes_for :profile
   has_one :beer, through: :profile, as: :beer

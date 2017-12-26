@@ -3,11 +3,7 @@
     <div class="right">
       <%= link_to 'Edit', edit_user_path(@user), class: button_classes('warning') %> <%= link_to 'All Users', users_path, class: button_classes %>
     </div> <!-- right -->
-
     <h1><%= @user.name %>'s Profile</h1>
-    <p>Tags:
-      TBD
-    </p>
   </div> <!-- col-sm-12 -->
 </div> <!-- row -->
 
@@ -65,6 +61,18 @@
       <% end %>
     </ul>
   </div> <!-- col-sm-4 -->
+</div> <!-- row -->
+
+<div class="row">
+  <div class="col-sm-12">
+    <h3>Comments</h3>
+    <% @comments.each do |comment| %>
+      <article class="comment">
+        <p class="posted-date">Posted on <%= comment.created_at.to_date %></p>
+        <p>"<%= comment.body %>"</p>
+      </article>
+    <% end %>
+  </div> <!-- col-sm-12 -->
 </div> <!-- row -->
 
 
