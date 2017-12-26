@@ -6,6 +6,14 @@ class UsersController < ApplicationController
   end
 
   def show
+    user_profile = ProfileMatcher.new(@user)
+    @interestees = @user.interestees
+    @suitors = @user.suitors
+    @profile_matches = user_profile.find_matches
+    @beer_matches = user_profile.beer
+    @cat_matches = user_profile.cat
+    @color_matches = user_profile.color
+    @food_matches = user_profile.food
   end
 
   def new

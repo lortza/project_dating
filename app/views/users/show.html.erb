@@ -1,24 +1,68 @@
-<div class="right">
-  <%= link_to 'Edit', edit_user_path(@user), class: button_classes('warning') %> <%= link_to 'All Users', users_path, class: button_classes %>
-</div> <!-- right -->
+<div class="row">
+  <div class="col-sm-12">
+    <div class="right">
+      <%= link_to 'Edit', edit_user_path(@user), class: button_classes('warning') %> <%= link_to 'All Users', users_path, class: button_classes %>
+    </div> <!-- right -->
 
-<h1><%= @user.name %>'s Profile</h1>
+    <h1><%= @user.name %>'s Profile</h1>
+    <p>Tags:
+      TBD
+    </p>
+  </div> <!-- col-sm-12 -->
+</div> <!-- row -->
 
 <div class="row">
   <div class="col-sm-6">
-    <p><strong><%= @user.name %>'s favorite...</strong></p>
-    <p>...grog is a <%= @user.profile.beer.name %></p>
-    <p>...name for a cat is <%= @user.profile.cat.name %></p>
-    <p>...color for a sword is <%= @user.profile.color.name %></p>
-    <p>...breakfast food is <%= @user.profile.food.name %></p>
+    <h4><%= @user.name %>'s favorite...</h4>
+    <p>grog is a <%= @user.profile.beer.name %> along with</p>
+      <%= render 'profile_matches', object: @beer_matches %>
+
+    <p>name for a cat is <%= @user.profile.cat.name %> along with</p>
+      <%= render 'profile_matches', object: @cat_matches %>
+
+    <p>color for a sword is <%= @user.profile.color.name %> along with</p>
+      <%= render 'profile_matches', object: @color_matches %>
+
+    <p>breakfast food is <%= @user.profile.food.name %> along with</p>
+      <%= render 'profile_matches', object: @food_matches %>
   </div> <!-- col-sm-6 -->
 
   <div class="col-sm-6">
-    <p><strong><%= @user.name %>'s best matches are:</strong></p>
+    <h4>Matches Based on Profile</h4>
+    <ul>
+      <% @profile_matches.each do |match| %>
+      <li><%= link_to match.name, match %></li>
+      <% end %>
+    </ul>
+
+  </div> <!-- col-sm-6 -->
+</div> <!-- row -->
+
+<div class="row">
+  <div class="col-sm-4">
+    <h4><%= @user.name %> is interested in:</h4>
+    <ul>
+      <% @interestees.each do |user| %>
+      <li><%= link_to user.name, user_path(user) %></li>
+      <% end %>
+    </ul>
+  </div> <!-- col-sm-4 -->
+
+  <div class="col-sm-4">
+    <h4>Users interested in <%= @user.name %>:</h4>
+    <ul>
+      <% @suitors.each do |user| %>
+      <li><%= link_to user.name, user_path(user) %></li>
+      <% end %>
+    </ul>
+  </div> <!-- col-sm-4 -->
+
+  <div class="col-sm-4">
+    <h4>Matches based on Mutual Interest:</h4>
     <ul>
       <li>TBD</li>
     </ul>
-  </div> <!-- col-sm-6 -->
+  </div> <!-- col-sm-4 -->
 </div> <!-- row -->
 
 

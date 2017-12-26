@@ -5,8 +5,11 @@ Color.destroy_all
 Food.destroy_all
 User.destroy_all
 
+
+MULTIPLIER = 10
+
 puts "Creating Beers, Cats, Colors, and Foods"
-10.times do
+(MULTIPLIER * 1).times do
   Beer.create!(name: Faker::Beer.unique.style)
   Cat.create!(name: Faker::Cat.unique.name)
   Color.create!(name: Faker::Color.unique.color_name)
@@ -14,7 +17,7 @@ puts "Creating Beers, Cats, Colors, and Foods"
 end
 
 puts "Creating users and profiles"
-20.times do
+(MULTIPLIER * 2).times do
   user = User.create!(name: Faker::Internet.unique.user_name)
   user.profile = Profile.create!({
     user_id: user.id,
@@ -23,5 +26,18 @@ puts "Creating users and profiles"
     color_id: Color.all.sample.id,
     food_id: Food.all.sample.id
     })
+end
+
+puts "Creating user love interests"
+users = User.all.sample(MULTIPLIER)
+
+users.each do |user|
+  dating_pool = User.where('id != ?', user.id)
+  interests = dating_pool.sample(MULTIPLIER/2)
+
+  interests.each do |i|
+    Interested.create!(interester_id: user.id, interestee_id: i.id)
+  end
+
 end
 
