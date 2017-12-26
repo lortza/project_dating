@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    @user.profile = Profile.new(user_id: @user.id)
   end
 
   def edit
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
+    @user.profile = Profile.create(profile_params)
     if @user.save
       flash[:notice] = 'User was successfully created.'
       redirect_to @user
@@ -49,7 +50,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def profile_params
+    params.require(:profile).permit(:id, :beer_id, :cat_id, :color_id, :food_id)
+  end
+
   def user_params
-    params.require(:user).permit(:name)
+    params.require(:user).permit(:name, profile: [:id, :beer_id, :cat_id, :color_id, :food_id])
   end
 end

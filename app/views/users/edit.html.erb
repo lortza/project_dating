@@ -1,6 +1,8 @@
+<div class="right">
+  <%= link_to 'Cancel', @user, class: button_classes('warning') %>
+  <%= link_to 'user Index', users_path, class: button_classes %>
+</div> <!-- right -->
 <h1>Editing User</h1>
 
 <%= render 'form', user: @user %>
 
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>

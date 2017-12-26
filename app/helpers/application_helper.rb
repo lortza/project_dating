@@ -11,7 +11,7 @@ module ApplicationHelper
   end
 
   def button_classes(style = 'primary')
-    "btn btn-xs btn-#{style}"
+    "btn btn-sm btn-outline-#{style}"
   end
 
 end

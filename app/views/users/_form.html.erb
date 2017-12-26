@@ -3,9 +3,32 @@
   <%= render 'shared/errors', object: user %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :user_name %>
+    <%= form.label :name, 'Enter a Username' %>
+    <%= form.text_field :name, id: :user_name, placeholder: 'Username', class: 'form-control' %>
   </div>
+
+  <%= fields_for :profile, user.profile do |profile| %>
+  <h3>Choose your favorites...</h3>
+    <div class="field">
+      <%= profile.label :beer_id, 'Favorite Style of Grog' %>
+      <%= profile.collection_select :beer_id, Beer.all.order('name'), :id, :name, prompt: "-- select one --", class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= profile.label :cat_id, 'Favorite Name for a Cat' %>
+      <%= profile.collection_select :cat_id, Cat.all.order('name'), :id, :name, prompt: "-- select one --", class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= profile.label :color_id, 'Favorite Color for a Sword' %>
+      <%= profile.collection_select :color_id, Color.all.order('name'), :id, :name, prompt: "-- select one --", class: 'form-control' %>
+    </div>
+
+    <div class="field">
+      <%= profile.label :food_id, 'Favorite Breakfast Food' %>
+      <%= profile.collection_select :food_id, Food.all.order('name'), :id, :name, prompt: "-- select one --", class: 'form-control' %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>

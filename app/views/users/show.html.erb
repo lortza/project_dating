@@ -1,10 +1,12 @@
+<div class="right">
+  <%= link_to 'Edit', edit_user_path(@user), class: button_classes('warning') %> <%= link_to 'All Users', users_path, class: button_classes %>
+</div> <!-- right -->
+
 <h1><%= @user.name %>'s Profile</h1>
 
-<p><strong><%= @user.name %>'s favorite...</strong></p>
-<p>beer is a <%= @user.profile.beer.name %></p>
-<p>cat name is <%= @user.profile.cat.name %></p>
-<p>color is <%= @user.profile.color.name %></p>
-<p>food is <%= @user.profile.food.name %></p>
+<p><strong><%= @user.name %>'s favorite</strong></p>
+<p>...grog is a <%= @user.profile.beer.name %></p>
+<p>...name for a cat is <%= @user.profile.cat.name %></p>
+<p>...color for a sword is <%= @user.profile.color.name %></p>
+<p>...breakfast food is <%= @user.profile.food.name %></p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
