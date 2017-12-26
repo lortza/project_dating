@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
-    @users = User.all
+    @users = User.all.order('name')
   end
 
   def show
@@ -30,6 +30,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)
+      @user.profile.update(profile_params)
       flash[:notice] = 'User was successfully updated.'
       redirect_to @user
     else

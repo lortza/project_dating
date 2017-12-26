@@ -6,3 +6,6 @@
 
 <%= render 'form', user: @user %>
 
+<div class="right">
+  <%= link_to 'Delete User', @user, method: :delete, data: {confirm: "Are you sure?"}, class: button_classes('danger') %>
+</div>
